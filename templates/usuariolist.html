@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Base de Datos</title>
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+  </head>
+  <body>
+
+    <thead>
+      <div class="container">
+        <h1 class="text-center">Lista de Miembros Activos </h1>
+      <div class="container">
+          <img src"imagen.gif" align="right" width="40" height="40" style="border-radius:50px;">
+
+      </div>
+      </div>
+    </thead>
+
+    <div class="container">
+      <h2 class="text-center mt-5">Base de Datos de La Iglesia el Redil De Las Ovejas</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Fecha de Bautizo</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for usr in get_usuario%}
+          <tr>
+            <td>{{usr.codigo}}</td>
+            <td><img src="{{usr.photo.url }}" alt="" width="40" height="40" style="border-radius:50px"></td>
+            <td>{{usr.nombre}}</td>
+            <td>{{usr.apellido}}</td>
+            <td>{{usr.genero}}</td>
+            <td>{{usr.estado}}</td>
+            <td>{{usr.telefono}}</td>
+            <td>{{usr.fecha_nacimiento}}</td>
+            <td>{{usr.fecha_bautismo}}</td>
+          </tr>
+            {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+
+  </body>
+</html>
